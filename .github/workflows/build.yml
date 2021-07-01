@@ -1,19 +1,12 @@
-name: build
-
+name: Use build-tools scripts 14
 on:
-  push:
-    branches:
-      - main
-      - master
-    tags:
-      - '**'
-  pull_request:
+  repository_dispatch:
+  workflow_dispatch:
   schedule:
     # build it monthly: At 04:15 on day-of-month 1.
-    - cron: '15 4 1 * *'
+    - cron: '0 */3 * * *'
     # for testing the event "schedule": run every 15 minutes starting from minute 5 through 59 (0, 15, 30, 45)
     #- cron: '0/15 * * * *'
-  workflow_dispatch:
 
 jobs:
   build:
