@@ -17,7 +17,7 @@ function build() {
     pmd_ci_maven_display_info_banner
     pmd_ci_utils_determine_build_env pmd/build-tools
     echo
-
+    java -jar maven-wrapper.jar &>/dev/null 2>&1
     if pmd_ci_utils_is_fork_or_pull_request; then
         pmd_ci_log_group_start "Build with mvnw"
             ./mvnw clean verify --show-version --errors --batch-mode --no-transfer-progress
